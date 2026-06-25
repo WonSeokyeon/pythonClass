@@ -77,15 +77,3 @@ while True:
        break
     else:
        print("로그인 실패")
-
-
-
-# password = "1234"
-
-# while True:
-#    user =  input("비밀번호를 입력하세요 : ")
-#    if user == password:
-#     print("로그인 성공")
-#     break
-#    else:
-#       print("로그인 실패")
