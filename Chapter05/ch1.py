@@ -47,7 +47,7 @@
 # print(subway)
 # print(newsubway)
 
-#리스트 합집함
+#리스트 합집함(extend)
 mixList1 = [0,True,"밥",[1,2,3,4]]
 mixList2 = [30, False,'수박']
 print(mixList1)
