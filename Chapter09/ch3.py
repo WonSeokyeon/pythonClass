@@ -1,8 +1,6 @@
-#자바 : 상속(부모것은 내것, 자식은 반드시 super(), 오버라이딩 다중상송불가(모호성))
-#파이썬 : 상속(부모것은 내것, 자식은 반드시 부모.__init__(self, 매개변수),
-#super(self)
+# 다중 상속
 
-#일반 유닛(공격력 0)
+#일반 유닛(지상 공격력 0)
 class Unit:
   def __init__(self, name, hp, speed):
     self.name = name
@@ -32,13 +30,16 @@ class AttackUnit(Unit):
         else:
             print(f"{self.name}은 체력이 {self.hp}가 남아 있습니다.")
 
-#화염 방사병 : 공격 유닛
-fireSoldier = AttackUnit("화염방사병", 40, 10, 10)
-
-#화염 방사병  공격 명령(2시)
-fireSoldier.attack("2시")
-
-#화염방사병이 공격을 받았다.
-fireSoldier.damaged(20)
-fireSoldier.damaged(10)
-fireSoldier.damaged(10)
+#공중 유무 유닛(공중을 진행 할 수 있는 체크)C
+class Flayable:
+    def __init__(self, flyint_speed):
+        self.flyint_speed =  flyint_speed
+    #멤버함수
+    def fly(self, location):
+        print (f"{self.flyint_speed}이 {location}방향으로 날아가고있습니다.")
+#다중상속 (지상공격 유닛, 공중 유뮤)
+class FlayableAttackUnit(AttackUnit, Flayable):
+    def __init__(self, name, hp, speed, damage, flyint_speed ):
+        AttackUnit.__init__(self.name, hp, speed,damage)
+        Flayable.__init__(self, flyint_speed)
+        
