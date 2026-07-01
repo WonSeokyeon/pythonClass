@@ -32,7 +32,7 @@ class AttackUnit(Unit):
 
 #공중 유무 유닛(공중을 진행 할 수 있는 체크)C
 class Flayable:
-    def __init__(self, flyint_speed):
+    def __init__(self, name, flyint_speed):
         self.flyint_speed =  flyint_speed
     #멤버함수
     def fly(self, location):
@@ -40,6 +40,14 @@ class Flayable:
 #다중상속 (지상공격 유닛, 공중 유뮤)
 class FlayableAttackUnit(AttackUnit, Flayable):
     def __init__(self, name, hp, speed, damage, flyint_speed ):
-        AttackUnit.__init__(self.name, hp, speed,damage)
+        AttackUnit.__init__(self, name, hp, speed,damage)
         Flayable.__init__(self, flyint_speed)
-        
+        self.name= name
+    def move(self,location):
+        print(f'{self.name}공중 유닛이 {location}방향으로 가고있습니다.')
+
+#공격기
+intercepter = FlayableAttackUnit(" 요격기", 300,0, 80 ,200)      
+intercepter.attack("2시방향")
+intercepter.damaged(60)
+intercepter.fly(intercepter.name,"4시")

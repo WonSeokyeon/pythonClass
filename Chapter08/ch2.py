@@ -58,8 +58,8 @@
 # file_handle.close()
 
 file_handle =open("score.txt", "r", encoding="utf8")
-# list=  file_handle.readlines()
-# file_handle.close()
+list=  file_handle.readlines()
+file_handle.close()
 
 #print(list, type(list))
 
